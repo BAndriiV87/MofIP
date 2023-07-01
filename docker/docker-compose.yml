@@ -1,0 +1,22 @@
+services:
+  mofip-docker-dind:
+    image: docker:dind
+
+  mofip-jenkins:
+    image: mofip-jenkins:2.401.1-1
+    depends_on:
+      - mofip-docker-dind
+    restart: on-failure
+
+  mofip-devlinux:
+    image: mofip-devlinux
+
+networks:
+  mofip-jenkins:
+    name: mofip-jenkins
+  mofip-devlinux:
+    name: mofip-devlinux
+
+volumes:
+  mofip-jenkins-docker-certs:
+  mofip-jenkins-data:

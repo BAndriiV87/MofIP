@@ -1,1 +1,1 @@
-# MofIP
+# MofIP - application for effective managing industrial resources.

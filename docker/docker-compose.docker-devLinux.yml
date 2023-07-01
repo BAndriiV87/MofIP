@@ -1,0 +1,9 @@
+services:
+  mofip-devlinux:
+    build:
+      context: ./devLinux
+    container_name: mofip-devlinux
+    networks:
+      - mofip-devlinux
+    tty: true
+    stdin_open: true
