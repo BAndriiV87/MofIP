@@ -28,6 +28,8 @@
 
 # How connect ssh Jenkins to devlinux container
 1. Copy from mofip-jenkins </var/jenkins_home/.ssh/ssh_host_rsa_key> to jenkins-web key or set path to key
-2. Copy from mofip-jenkins contant of file </var/jenkins_home/.ssh/ssh_host_rsa_key.pub> to mofip-devlinux
+2. Set hostname <mofip-jenkins>. It's docker network for jenkins and devlinux containers
+3. Copy from mofip-jenkins contant of file </var/jenkins_home/.ssh/ssh_host_rsa_key.pub> to mofip-devlinux
    </home/devlinux/.ssh/authorized_keys>. Create </home/devlinux/.ssh/authorized_keys> befor copy
-3. Set user <devlinux> and network <mofip-devlinux>
+4. Set "Remote Directory" in Jenkins </home/devlinux/jenkins>
+4. Set user <devlinux> and network <mofip-devlinux>
