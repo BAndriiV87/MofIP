@@ -3,13 +3,21 @@ services:
     image: docker:dind
 
   mofip-jenkins:
-    image: mofip-jenkins:2.401.1-1
+    image: mofip-jenkins
     depends_on:
       - mofip-docker-dind
     restart: on-failure
 
   mofip-devlinux:
     image: mofip-devlinux
+
+  mofip-localdevlinux:
+    image: mofip-devlinux
+    container_name: mofip-localdevlinux
+    volumes:
+      - ../app:/app
+    working_dir: /app
+    tty: true
 
 networks:
   mofip-jenkins:

@@ -10,14 +10,17 @@ services:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
       - mofip-jenkins-docker-certs:/certs/client
-      - mofip-jenkins-data:/var/jenkins_home
+      - mofip-jenkins-data:$MOFIP_JENKINS_WORK_DATA_PATH
     ports:
-      - "2376:2376"
+      - "$MOFIP_SERVER_PORT:$MOFIP_SERVER_PORT"
 
   mofip-jenkins:
     # WINDOWS BUILD
     build:
       context: ./jenkins
+      dockerfile: Dockerfile
+      args:
+        - work_data_path=$MOFIP_JENKINS_WORK_DATA_PATH
     container_name: mofip-jenkins
     networks:
       - mofip-jenkins
@@ -27,7 +30,7 @@ services:
       DOCKER_TLS_VERIFY: 1
     volumes:
       - mofip-jenkins-docker-certs:/certs/client:ro
-      - mofip-jenkins-data:/var/jenkins_home
+      - mofip-jenkins-data:$MOFIP_JENKINS_WORK_DATA_PATH
     ports:
       - "8080:8080"
       - "50000:50000"

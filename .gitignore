@@ -32,6 +32,6 @@
 *.app
 
 #docker ignore
-./docker/cleandocker.bat
+#./docker/cleandocker.bat
 ./docker/jenkins-cli.jar
 gittoken.txt
