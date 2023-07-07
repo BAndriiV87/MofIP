@@ -15,8 +15,8 @@ services:
     image: mofip-devlinux
     container_name: mofip-localdevlinux
     volumes:
-      - ../app:/app
-    working_dir: /app
+      - ../:/mofip
+    working_dir: /mofip
     tty: true
 
 networks:
