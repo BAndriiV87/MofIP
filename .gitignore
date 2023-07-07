@@ -35,3 +35,6 @@
 #./docker/cleandocker.bat
 ./docker/jenkins-cli.jar
 gittoken.txt
+
+**/build
+**temp
