@@ -7,16 +7,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup the default user.
 RUN echo 'root:root' | chpasswd \
-    && adduser devlinux \
-    && usermod -aG sudo devlinux \
-    && echo 'devlinux:devlinux' | chpasswd
+    && adduser mofip \
+    && usermod -aG sudo mofip \
+    && echo 'mofip:mofip' | chpasswd
 
 # Install required tools.
 RUN apt-get -qq update \
-    && apt-get -qq --no-install-recommends install -y git \
-    && apt-get -qq --no-install-recommends install vim \
-    && apt-get -qq --no-install-recommends install build-essential \
-    && apt-get -qq --no-install-recommends install cmake \
     && apt-get -qq --no-install-recommends install openssh-server \
     && apt-get -qq --no-install-recommends install iputils-ping \
     && apt-get -qq --no-install-recommends install net-tools \
@@ -32,12 +28,9 @@ RUN sed -i "s@.*PermitRootLogin.*prohibit.*@PermitRootLogin = without-password@g
 
 EXPOSE 22
 
-USER devlinux
+USER mofip
 
-RUN mkdir /home/devlinux/jenkins \
-    mkdir /home/devlinux/.ssh \
-    touch /home/devlinux/.ssh/authorized_keys
-    
-WORKDIR /home/devlinux/
+RUN mkdir /home/mofip/server
+WORKDIR /home/mofip/server
 
-ENTRYPOINT echo 'devlinux' | sudo -S service ssh start && bash
+ENTRYPOINT echo 'mofip' | sudo -S service ssh start && bash

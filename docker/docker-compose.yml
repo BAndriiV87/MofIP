@@ -10,6 +10,7 @@ services:
 
   mofip-devlinux:
     image: mofip-devlinux
+    restart: on-failure
 
   mofip-localdevlinux:
     image: mofip-devlinux
@@ -17,13 +18,22 @@ services:
     volumes:
       - ../:/mofip
     working_dir: /mofip
+    ports:
+      - "$MOFIP_LOCALDEV_PORT_SSH:22"
+    restart: on-failure
     tty: true
+
+  mofip-serverlinux:
+    image: mofip-serverlinux
+    restart: on-failure
 
 networks:
   mofip-jenkins:
     name: mofip-jenkins
   mofip-devlinux:
     name: mofip-devlinux
+  mofip-serverlinux:
+    name: mofip-serverlinux
 
 volumes:
   mofip-jenkins-docker-certs:

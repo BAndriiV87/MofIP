@@ -1,0 +1,11 @@
+services:
+  mofip-serverlinux:
+    build:
+      context: ./serverLinux
+      dockerfile: Dockerfile
+    container_name: mofip-serverlinux
+    networks:
+      - mofip-serverlinux
+    ports:
+      - "$MOFIP_SERV_PORT_SSH:22"
+    tty: true
