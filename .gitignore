@@ -31,10 +31,15 @@
 *.out
 *.app
 
+# Visual Studio Code
+.vs
+.vscode
+
 #docker ignore
 #./docker/cleandocker.bat
 ./docker/jenkins-cli.jar
 gittoken.txt
 
 **/build
-**temp
+external/googletest
+/help

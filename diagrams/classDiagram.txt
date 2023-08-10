@@ -1,0 +1,57 @@
+@startuml
+
+' VERSION
+' =======================================
+
+class VersionManger {
+    - Id unitId
+}
+
+abstract class IVersion {
+}
+
+' PRODUCT
+' =======================================
+
+abstract class IProduct {
+    - Id id
+}
+
+abstract class Product {
+    
+}
+
+abstract class ISegment {
+    - ISegment *parent
+    __
+    + {abstract} void insert(ISegment *)
+    + {abstract} void remove(ISegment *)
+    + {abstract} void parent()
+    + {abstract} ISegment child(int)
+    + {abstract} childs()
+}
+'ISegment "1" *-- IVersion
+
+class Assembly {
+    - list<ISegment*> childs
+}
+ISegment <|-- Assembly
+ISegment --o "many" Assembly
+
+class IUnit {
+}
+ISegment <|-- IUnit
+
+class Unit {
+}
+IUnit <|-- Unit
+
+class InternalUnit {
+}
+IUnit <|-- InternalUnit
+
+class ExternalUnit {
+}
+IUnit <|-- ExternalUnit
+
+@enduml
