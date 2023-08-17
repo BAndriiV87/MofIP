@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
 	vbxlayout->addWidget(cst2);
 	vbxlayout->addWidget(cst3);
 	vbxlayout->addWidget(btn);
+
 	wgt.setLayout(vbxlayout);
 
 	wgt.show();
