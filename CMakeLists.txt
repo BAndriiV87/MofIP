@@ -39,6 +39,8 @@ if(ParenDirectory STREQUAL "")
 
     # Application Runtimes part
     if(MSVC)
+        # Suppress Microsoft warnings about functions being unsafe
+        add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS)
         add_subdirectory(client)
     elseif(UNIX)
         add_subdirectory(server)
@@ -47,5 +49,3 @@ if(ParenDirectory STREQUAL "")
     endif()
 
 endif(ParenDirectory STREQUAL "")
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}\\HAHAHAHA)
