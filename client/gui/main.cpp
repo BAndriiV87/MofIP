@@ -1,22 +1,28 @@
 #include <QtWidgets>
-#include <MofIPWidgets/SimpleWidget.hpp>
+#include <MofipWidgets.hpp>
+
+#include "guiConfig.h"
+#include <iostream>
+#include <string>
 
 int main(int argc, char **argv) {
-    QApplication app(argc, argv);
-    QWidget wgt;
-    SimpleWidget* pcw = new SimpleWidget;
-    QScrollBar* phsb = new QScrollBar(Qt::Horizontal);
 
-    phsb->setRange(0, 100);
+	QApplication app(argc, argv);
 
-    QObject::connect(phsb, SIGNAL(valueChanged(int)), pcw, SLOT(slotSetProgress(int)));
+	QWidget wgt;
 
-    QVBoxLayout* pvbxLayout = new QVBoxLayout;
-    pvbxLayout->addWidget(pcw);
-    pvbxLayout->addWidget(phsb);
-    wgt.setLayout(pvbxLayout);
+	MofIPWidgets::MofIPPushButton* cst1 = new MofIPWidgets::MofIPPushButton(QString("Cancel"));
+	MofIPWidgets::MofIPPushButton* cst2 = new MofIPWidgets::MofIPPushButton(QString("OK"));
+	MofIPWidgets::MofIPPushButton* cst3 = new MofIPWidgets::MofIPPushButton(QString("Quit"));
 
-    wgt.show();
+	QVBoxLayout* vbxlayout = new QVBoxLayout;
+	vbxlayout->setContentsMargins(2, 2, 2, 2);
+	vbxlayout->addWidget(cst1);
+	vbxlayout->addWidget(cst2);
+	vbxlayout->addWidget(cst3);
+	wgt.setLayout(vbxlayout);
+
+	wgt.show();
 
     return app.exec();
 }

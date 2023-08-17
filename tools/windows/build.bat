@@ -4,9 +4,11 @@
 
 :: User variables:
 set buildpath=%cd%\..\..\build
+set installpath="c:\Program Files\MofIP"
 
 :: Project variables
 set projectrootpath=%cd%\..\..\
+set configuration_type=Debug
 
 :: ===========================================
 IF NOT "%1"=="" (
@@ -29,16 +31,23 @@ IF NOT "%1"=="" (
             CALL :logWarning The build directory doesn't exist.
             CALL :logHint Configure cmake project using next command: build --config
         ) ELSE (
-            cmake --build %buildpath%
+            cmake --build %buildpath% --config %configuration_type%
         )
     )
     IF "%1"=="--clear" (
         IF EXIST %buildpath% (
-            CALL :logStatus Remove directory: %buildpath%
             rmdir /s /q %buildpath%
+            CALL :logStatus Remove directory: %buildpath%
         ) ELSE (
             CALL :logWarning The directory has already removed
         )
+        IF EXIST %installpath% (
+            rmdir /s /q %installpath%
+            CALL :logStatus Remove directory: %installpath%
+        )
+    )
+    IF "%1"=="--install" (
+        cmake --install %buildpath% --config %configuration_type%
     )
     SHIFT
 ) ELSE (

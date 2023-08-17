@@ -1,0 +1,7 @@
+// the configured options and settings for GUI MofIP
+#define GUI_DATA_DIR ${INSTALL_GUI_DATA_DIR}
+
+#define VAL(str) #str
+#define TOSTRING(str) VAL(str)
+
+const constexpr char* GUI_DATA_DIR_STR = TOSTRING(GUI_DATA_DIR);
