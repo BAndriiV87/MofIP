@@ -10,8 +10,8 @@ namespace MofIPWidgets {
 
     const QFont MofIPPushButton::mFont = QFont(QString("Comic Sans MS"), 10);
     const qreal MofIPPushButton::mRadius = 10;
-    const qreal MofIPPushButton::mBoundWidth = 4;
-    const qreal MofIPPushButton::mPenWidth = 2;
+    const qreal MofIPPushButton::mBoundWidth = 3;
+    const qreal MofIPPushButton::mPenWidth = 1;
     const QColor MofIPPushButton::mColorButton = { Qt::white };
 
 
@@ -28,7 +28,7 @@ namespace MofIPWidgets {
     }
 
     void MofIPPushButton::init() {
-        mSizeButton = QSize(140, 35);
+        mSizeButton = QPushButton::sizeHint();
     }
 
     void MofIPPushButton::paintEvent(QPaintEvent* e) {
@@ -37,21 +37,26 @@ namespace MofIPWidgets {
 
         // Draw shadow rectangle
         painter.setPen(Qt::NoPen);
-        painter.setBrush(Qt::gray);
-        qreal bound = mBoundWidth - (mIsPressed ? mBoundWidth * 0.6 : 0);
-        painter.drawPath(rectRoundPath(BUTTON_RECT(bound), mRadius));
+        if (!mIsPressed) {
+            painter.setBrush(Qt::gray);
+            painter.drawPath(rectRoundPath(BUTTON_RECT(mBoundWidth), mRadius));
+        }
 
         // Draw main rect of button
-        painter.setPen(QPen(Qt::black, mPenWidth));
-        painter.setBrush(mColorButton);
-        painter.drawPath(rectRoundPath(BUTTON_RECT(0), mRadius));
-        if (this->testAttribute(Qt::WA_Hover)) {
-            painter.fillPath(rectRoundPath(BUTTON_RECT(0), mRadius), QColor(0, 0, 0, 30));
+        if (mIsPressed) {
+            painter.setPen(QPen(Qt::gray, mPenWidth));
         }
+        painter.setBrush(mColorButton);
+        qreal boundInc = mIsPressed ? mBoundWidth * 0.5 : 0;
+        painter.drawPath(rectRoundPath(BUTTON_RECT(boundInc), mRadius));
+        if (this->testAttribute(Qt::WA_Hover)) {
+            painter.fillPath(rectRoundPath(BUTTON_RECT(boundInc), mRadius), QColor(0, 0, 0, 30));
+        }
+
         // Draw text inside button
         painter.setPen(QColor(Qt::black));
         painter.setFont(mFont);
-        painter.drawText(BUTTON_RECT(0), Qt::AlignCenter, QPushButton::text());
+        painter.drawText(BUTTON_RECT(0 + boundInc), Qt::AlignCenter, QPushButton::text());
     }
 
     QSize MofIPPushButton::sizeHint() const {
