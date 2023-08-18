@@ -3,5 +3,6 @@
 
 #include "MofIPWidgets/MofIPPushButton.hpp"
 #include "MofIPWidgets/MofipWidgetsCommon.hpp"
+#include "MofIPWidgets/MofIPWidgetsFactory.hpp"
 
 #endif // MOFIP_WIDGETS_HPP

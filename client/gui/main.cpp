@@ -7,27 +7,30 @@
 
 int main(int argc, char **argv) {
 
+	/* MofIPPushButton Exemple */
 	QApplication app(argc, argv);
 
 	QWidget wgt;
 
-	MofIPWidgets::MofIPPushButton* cst1 = new MofIPWidgets::MofIPPushButton(QString("Cancel"));
-	MofIPWidgets::MofIPPushButton* cst2 = new MofIPWidgets::MofIPPushButton(QString("OK"));
-	MofIPWidgets::MofIPPushButton* cst3 = new MofIPWidgets::MofIPPushButton(QString("Quit"));
+	MofIPWidgets::IWidgetsFactory* wgtFactory = new MofIPWidgets::MofIPWidgetFactory;
 
-	QPushButton* btn = new QPushButton("Button");
-	qDebug() << "[SIZE] " << btn->minimumSizeHint() << endl;
-	qDebug() << "[SIZE] " << cst1->minimumSizeHint() << endl;
+	QPushButton* cst1 = wgtFactory->createPushButton(QString("Cancel"));
+	QPushButton* cst2 = wgtFactory->createPushButton(QString("OK"));
+	QPushButton* cst3 = wgtFactory->createPushButton(QString("Quit"));
+
+	cst1->setMinimumSize(50, 50);
+	cst2->setMinimumSize(50, 50);
+	cst3->setMinimumSize(50, 50);
+	qDebug() << "[SIZE] " << cst1->size() << endl;
 
 	QVBoxLayout* vbxlayout = new QVBoxLayout;
 	vbxlayout->addWidget(cst1);
 	vbxlayout->addWidget(cst2);
 	vbxlayout->addWidget(cst3);
-	vbxlayout->addWidget(btn);
 
 	wgt.setLayout(vbxlayout);
 
 	wgt.show();
-
     return app.exec();
+
 }
