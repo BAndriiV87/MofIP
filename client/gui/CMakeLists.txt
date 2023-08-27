@@ -59,8 +59,10 @@ target_include_directories(${common_gui_target} INTERFACE
 # Targets definitions
 # =======================================================================
 add_subdirectory(MofIPWidgets)
+add_subdirectory(MofIPGui)
 set(LIBS
     MofIPWidgets
+    MofIPGui
 )
 # add WIN32 after target name for get debug console
 add_executable(${This}

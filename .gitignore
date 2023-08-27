@@ -43,3 +43,8 @@ gittoken.txt
 **/build
 external/googletest
 /help
+/diagrams
+client/gui/data
+client/gui/myStyle
+client/gui/main.cpp
+

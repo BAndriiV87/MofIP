@@ -36,18 +36,16 @@ namespace MofIPWidgets {
         painter.setRenderHint(QPainter::Antialiasing, true);
 
         // Draw shadow rectangle
-        painter.setPen(Qt::NoPen);
         if (!mIsPressed) {
+            painter.setPen(Qt::NoPen);
             painter.setBrush(Qt::gray);
             painter.drawPath(rectRoundPath(BUTTON_RECT(mBoundWidth), mRadius));
         }
 
         // Draw main rect of button
-        if (mIsPressed) {
-            painter.setPen(QPen(Qt::gray, mPenWidth));
-        }
+        painter.setPen(QPen(Qt::black, mPenWidth));
         painter.setBrush(mColorButton);
-        qreal boundInc = mIsPressed ? mBoundWidth * 0.5 : 0;
+        qreal boundInc = mIsPressed ? (mBoundWidth * 0.5) : 0;
         painter.drawPath(rectRoundPath(BUTTON_RECT(boundInc), mRadius));
         if (this->testAttribute(Qt::WA_Hover)) {
             painter.fillPath(rectRoundPath(BUTTON_RECT(boundInc), mRadius), QColor(0, 0, 0, 30));

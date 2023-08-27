@@ -12,7 +12,7 @@ set(HEADERS
 set(SOURCES
     src/MofIPPushButton.cpp
     src/MofipWidgetsCommon.cpp
-    include/MofIPWidgets/MofIPWidgetsFactory.cpp
+    src/MofIPWidgetsFactory.cpp
 )
 
 add_library(${This} ${BUILD_TYPE} ${HEADERS} ${SOURCES})
