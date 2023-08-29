@@ -47,7 +47,6 @@ function(set_target_folder)
             PDB_OUTPUT_DIRECTORY "${binOutputDirectory}/${dir_name}"
             COMPILE_PDB_OUTPUT_DIRECTORY "${libOutputDirectory}/${dir_name}")
 
-        get_target_property(pdb_debug_postfix ${target} DEBUG_POSTFIX)
         set_target_properties(${target}
             PROPERTIES
             PDB_NAME "${dir_name}"
@@ -81,9 +80,6 @@ endfunction(copy_dll_from_shared_to_exe_target)
 function(init_library_msvc)
     set(options SHARED_LIB)
     cmake_parse_arguments(LOCAL_OPTIONS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-    #set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF CACHE BOOL "" FORCE)
-    #set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 
     if(MSVC)
         if(LOCAL_OPTIONS_SHARED_LIB)

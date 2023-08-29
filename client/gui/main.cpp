@@ -6,39 +6,11 @@
 #include <iostream>
 #include <string>
 
-#define commandPrint(command) qDebug() << "[" << #command << "] "<< command << endl
-
+QGroupBox* buttonbox();
 void widgetgroup1(QWidget* wgt);
 void widgetgroup2(QWidget* wgt);
 
 int main(int argc, char **argv) {
-
-	/*Q_INIT_RESOURCE(styles);
-
-	QApplication::setStyle(new MyStyle);
-
-	QApplication app(argc, argv);
-	MyWindow gallery;
-	gallery.show();
-	return app.exec();*/
-
-	/*QApplication app(argc, argv);
-
-	MofIPWidgets::IWidgetsFactory* wgtFactory = new MofIPWidgets::MofIPWidgetFactory;
-
-	MofIPGui::MainWindow mw;
-	commandPrint(mw.geometry());
-
-	QPushButton* btn = wgtFactory->createPushButton(&mw);
-	btn->setText("Button");
-	btn->resize(150, 40);
-	btn->move(200, 200);
-
-	mw.resize(640, 480);
-	mw.show();
-
-	return app.exec();*/
-	// ===============================
 
 	QApplication app(argc, argv);
 
@@ -46,33 +18,6 @@ int main(int argc, char **argv) {
 	widgetgroup2(wgt);
 
 	return app.exec();
-
-	/* MofIPPushButton Exemple */
-	/*QApplication app(argc, argv);
-
-	QWidget wgt;
-
-	MofIPWidgets::IWidgetsFactory* wgtFactory = new MofIPWidgets::MofIPWidgetFactory;
-
-	QPushButton* cst1 = wgtFactory->createPushButton(QString("Cancel"));
-	QPushButton* cst2 = wgtFactory->createPushButton(QString("OK"));
-	QPushButton* cst3 = wgtFactory->createPushButton(QString("Quit"));
-
-	cst1->setMinimumSize(50, 50);
-	cst2->setMinimumSize(50, 50);
-	cst3->setMinimumSize(50, 50);
-	qDebug() << "[SIZE] " << cst1->size() << endl;
-
-	QVBoxLayout* vbxlayout = new QVBoxLayout;
-	vbxlayout->addWidget(cst1);
-	vbxlayout->addWidget(cst2);
-	vbxlayout->addWidget(cst3);
-
-	wgt.setLayout(vbxlayout);
-
-	wgt.show();
-    return app.exec();*/
-
 }
 
 QGroupBox* buttonbox() {
@@ -129,5 +74,4 @@ void widgetgroup2(QWidget* wgt) {
 	hspl->resize(200, 200);
 
 	hspl->show();
-
 }
