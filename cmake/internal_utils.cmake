@@ -1,7 +1,6 @@
 
 # Set project folders for target. Set compilation result directories for each target
 function(set_target_folder)
-    #set(multiValueArgs TARGETS)
     set(oneValueArgs TARGET NAME_DIR)
     cmake_parse_arguments(LOCAL_OPTIONS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
@@ -41,11 +40,11 @@ function(set_target_folder)
 
         set_target_properties(${target} PROPERTIES
             FOLDER ${targetFolder}
-            RUNTIME_OUTPUT_DIRECTORY "${binOutputDirectory}/${dir_name}"
-            LIBRARY_OUTPUT_DIRECTORY "${libOutputDirectory}/${dir_name}"
-            ARCHIVE_OUTPUT_DIRECTORY "${libOutputDirectory}/${dir_name}"
-            PDB_OUTPUT_DIRECTORY "${binOutputDirectory}/${dir_name}"
-            COMPILE_PDB_OUTPUT_DIRECTORY "${libOutputDirectory}/${dir_name}")
+            RUNTIME_OUTPUT_DIRECTORY "${binOutputDirectory}"
+            LIBRARY_OUTPUT_DIRECTORY "${libOutputDirectory}"
+            ARCHIVE_OUTPUT_DIRECTORY "${libOutputDirectory}"
+            PDB_OUTPUT_DIRECTORY "${binOutputDirectory}"
+            COMPILE_PDB_OUTPUT_DIRECTORY "${libOutputDirectory}")
 
         set_target_properties(${target}
             PROPERTIES
@@ -77,7 +76,7 @@ function(copy_dll_from_shared_to_exe_target)
     endif(shared_target_dir AND execute_target_dir)
 endfunction(copy_dll_from_shared_to_exe_target)
 
-function(init_library_msvc)
+function(set_library_type_msvc)
     set(options SHARED_LIB)
     cmake_parse_arguments(LOCAL_OPTIONS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
@@ -91,5 +90,4 @@ function(init_library_msvc)
         endif(LOCAL_OPTIONS_SHARED_LIB)
     endif()
 
-endfunction(init_library_msvc)
-
+endfunction(set_library_type_msvc)

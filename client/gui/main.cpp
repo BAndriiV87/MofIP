@@ -1,5 +1,5 @@
 #include <QtWidgets>
-#include <MofipWidgets.hpp>
+#include <MofIPWidgets.hpp>
 #include <MofIPGui.hpp>
 
 #include "guiConfig.h"
@@ -14,8 +14,11 @@ int main(int argc, char **argv) {
 
 	QApplication app(argc, argv);
 
-	QWidget *wgt = new QWidget;
-	widgetgroup2(wgt);
+	MofIPGui::MainWindow mwnd;
+	mwnd.show();
+
+	//QWidget *wgt = new QWidget;
+	//widgetgroup2(wgt);
 
 	return app.exec();
 }
