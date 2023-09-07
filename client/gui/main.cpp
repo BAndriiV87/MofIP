@@ -1,5 +1,5 @@
 #include <QtWidgets>
-#include <MofipWidgets.hpp>
+#include <MofIPWidgets.hpp>
 #include <MofIPGui.hpp>
 
 #include <myStyle/myStyle.h>
@@ -8,16 +8,22 @@
 #include <iostream>
 #include <string>
 
+QGroupBox* buttonbox();
+
 void widgetgroup1(QWidget* wgt);
 void widgetgroup2(QWidget* wgt);
 
 int main(int argc, char **argv) {
 
 	QApplication::setStyle(new MyStyle);
+
 	QApplication app(argc, argv);
 
-	QWidget *wgt = new QWidget;
-	widgetgroup2(wgt);
+	MofIPGui::MainWindow mwnd;
+	mwnd.show();
+
+	//QWidget *wgt = new QWidget;
+	//widgetgroup2(wgt);
 
 	return app.exec();
 }
@@ -76,5 +82,4 @@ void widgetgroup2(QWidget* wgt) {
 	hspl->resize(200, 200);
 
 	hspl->show();
-
 }
