@@ -1,34 +1,54 @@
 #include <QtWidgets>
-#include <MofIPWidgets.hpp>
-#include <MofIPGui.hpp>
+//#include <MofIPWidgets.hpp>
+//#include <MofIPGui.hpp>
 
-#include <myStyle/myStyle.h>
+#include "MofIPStyle.h"
 
 #include "guiConfig.h"
 #include <iostream>
 #include <string>
 
-QGroupBox* buttonbox();
-
-void widgetgroup1(QWidget* wgt);
-void widgetgroup2(QWidget* wgt);
+QGroupBox* buttonbox(QWidget* wgt = nullptr);
+void widgetgroup(QWidget* wgt);
 
 int main(int argc, char **argv) {
+	/*
+		QApplication::setStyle(new MofIPStyle);
+		QApplication app(argc, argv);
+		QWidget *wgt = new QWidget;
+		auto grpbx = buttonbox(wgt);
+		grpbx->move(50, 50);
+		wgt->resize(640, 480);
+		wgt->show();
+		return app.exec();
+	*/
 
-	QApplication::setStyle(new MyStyle);
-
+	//QApplication::setStyle(new MofIPStyle);
 	QApplication app(argc, argv);
 
-	MofIPGui::MainWindow mwnd;
-	mwnd.show();
+	QWidget wgt;
 
-	//QWidget *wgt = new QWidget;
-	//widgetgroup2(wgt);
+	QTabWidget tab(&wgt);
+	tab.setTabPosition(QTabWidget::East);
+	QStringList lst;
+	
+	lst << "Linux" << "Windows" << "MacOSX" << "Android";
+	foreach(QString str, lst) {
+		tab.addTab(new QLabel(str, &tab), str);
+	}
+	tab.resize(350, 250);
+	tab.move(30, 30);
+
+	auto *boxbutton = buttonbox(&wgt);
+	boxbutton->move(30, 300);
+
+	wgt.resize(640, 480);
+	wgt.show();
 
 	return app.exec();
 }
 
-QGroupBox* buttonbox() {
+QGroupBox* buttonbox(QWidget *wgt) {
 	QPushButton* btns[4]{};
 	int btnsize = sizeof(btns) / sizeof(QPushButton*);
 	btns[0] = new QPushButton("Disable");
@@ -49,24 +69,17 @@ QGroupBox* buttonbox() {
 	grd->addWidget(btns[3], 1, 1);
 
 	// Group box layout
-	QGroupBox* grpbx = new QGroupBox("Group Box");
+	QGroupBox* grpbx;
+	if (wgt)
+		grpbx = new QGroupBox("Group Box", wgt);
+	else
+		grpbx = new QGroupBox("Group Box");
+
 	grpbx->setLayout(grd);
 
 	return grpbx;
 }
-
-void widgetgroup1(QWidget* wgt) {
-
-	// Configure main layout
-	QGridLayout* mainLayout = new QGridLayout;
-	//mainLayout->addLayout(grd, 0, 0);
-	mainLayout->addWidget(buttonbox(), 0, 0);
-
-	wgt->setLayout(mainLayout);
-	wgt->show();
-}
-
-void widgetgroup2(QWidget* wgt) {
+void widgetgroup(QWidget* wgt) {
 	QPushButton* A = new QPushButton("Button 1");
 	A->setMinimumSize(120, 30);
 	QPushButton* B = new QPushButton("Button 2");
@@ -77,7 +90,12 @@ void widgetgroup2(QWidget* wgt) {
 	vspl->addWidget(B);
 
 	QSplitter* hspl = new QSplitter(Qt::Horizontal);
-	hspl->addWidget(buttonbox());
+	QWidget* wspl = new QWidget;
+
+	auto grpbx = buttonbox(wspl);
+	grpbx->move(50, 50);
+
+	hspl->addWidget(wspl);
 	hspl->addWidget(vspl);
 	hspl->resize(200, 200);
 

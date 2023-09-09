@@ -27,11 +27,11 @@ set(BUILD_GTEST ON CACHE BOOL "Builds the googletest subproject" FORCE)
 set(BUILD_GMOCK ON CACHE BOOL "Builds the googlemock subproject" FORCE)
 
 set_library_type_msvc()
-add_subdirectory(external/googletest)
-set_target_folder(TARGET gtest_main)
-set_target_folder(TARGET gtest)
-set_target_folder(TARGET gmock_main)
-set_target_folder(TARGET gmock)
+#add_subdirectory(external/googletest)
+#set_target_folder(TARGET gtest_main)
+#set_target_folder(TARGET gtest)
+#set_target_folder(TARGET gmock_main)
+#set_target_folder(TARGET gmock)
 
 # Application Runtimes part
 # -------------------------------------------------------------------------

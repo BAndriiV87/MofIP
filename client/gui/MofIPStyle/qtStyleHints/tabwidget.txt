@@ -1,0 +1,43 @@
+[CONTROL] CE_ShapedFrame
+[CONTROL] CE_TabBarTab
+[CONTROL] CE_TabBarTabLabel
+[CONTROL] CE_TabBarTabShape
+[PRIMITIVE] PE_FrameTabWidget
+[SUBMETHOD] setnewval(QStyle:: CT_TabBarTab ,  QSize(49, 21) ); // default:  QSize(49, 21)
+[SUBMETHOD] setnewval(QStyle:: PM_DefaultFrameWidth ,  2 ); // default:  2
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarBaseHeight ,  2 ); // default:  2
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarBaseOverlap ,  2 ); // default:  2
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarIconSize ,  16 ); // default:  16
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarScrollButtonWidth ,  16 ); // default:  16
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarTabHSpace ,  24 ); // default:  24
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarTabShiftHorizontal ,  0 ); // default:  0
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarTabShiftVertical ,  2 ); // default:  2
+[SUBMETHOD] setnewval(QStyle:: PM_TabBarTabVSpace ,  8 ); // default:  8
+[SUBMETHOD] setnewval(QStyle:: PM_TabBar_ScrollButtonOverlap ,  1 ); // default:  1
+[SUBMETHOD] setnewval(QStyle:: SE_FrameLayoutItem ,  QRect(0,0 0x0) ); // default:  QRect(0,0 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_LabelLayoutItem ,  QRect(0,0 0x0) ); // default:  QRect(0,0 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_ShapedFrameContents ,  QRect(0,0 100x30) ); // default:  QRect(0,0 100x30)
+[SUBMETHOD] setnewval(QStyle:: SE_TabBarScrollLeftButton ,  QRect(69,0 16x30) ); // default:  QRect(69,0 16x30)
+[SUBMETHOD] setnewval(QStyle:: SE_TabBarScrollRightButton ,  QRect(84,0 16x30) ); // default:  QRect(84,0 16x30)
+[SUBMETHOD] setnewval(QStyle:: SE_TabBarTabText ,  QRect(12,-2 25x27) ); // default:  QRect(12,-2 25x27)
+[SUBMETHOD] setnewval(QStyle:: SE_TabBarTearIndicator ,  QRect(0,0 8x30) ); // default:  QRect(0,0 8x30)
+[SUBMETHOD] setnewval(QStyle:: SE_TabBarTearIndicatorRight ,  QRect(0,0 0x0) ); // default:  QRect(0,0 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetLayoutItem ,  QRect(0,0 0x0) ); // default:  QRect(0,0 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetLeftCorner ,  QRect(0,19 0x0) ); // default:  QRect(0,19 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetRightCorner ,  QRect(282,19 0x0) ); // default:  QRect(282,19 0x0)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetTabBar ,  QRect(0,0 116x21) ); // default:  QRect(0,0 116x21)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetTabContents ,  QRect(2,21 278x331) ); // default:  QRect(2,21 278x331)
+[SUBMETHOD] setnewval(QStyle:: SE_TabWidgetTabPane ,  QRect(0,19 282x335) ); // default:  QRect(0,19 282x335)
+[SUBMETHOD] setnewval(QStyle:: SE_ToolButtonLayoutItem ,  QRect(0,0 0x0) ); // default:  QRect(0,0 0x0)
+[SUBMETHOD] setnewval(QStyle:: SH_Button_FocusPolicy ,  11 ); // default:  11
+[SUBMETHOD] setnewval(QStyle:: SH_TabBar_Alignment ,  1 ); // default:  1
+[SUBMETHOD] setnewval(QStyle:: SH_TabBar_ElideMode ,  3 ); // default:  3
+[SUBMETHOD] setnewval(QStyle:: SH_TabBar_PreferNoArrows ,  0 ); // default:  0
+[SUBMETHOD] setnewval(QStyle:: SH_TabBar_SelectMouseType ,  2 ); // default:  2
+[SUBMETHOD] setnewval(QStyle:: SH_TabWidget_DefaultTabPosition ,  0 ); // default:  0
+[SUBMETHOD] setnewval(QStyle:: SH_ToolButton_PopupDelay ,  600 ); // default:  600
+[SUBMETHOD] setnewval(QStyle:: SH_ToolTip_WakeUpDelay ,  700 ); // default:  700
+[SUBMETHOD] setnewval(QStyle:: SH_UnderlineShortcut ,  0 ); // default:  0
+[SUBMETHOD] setnewval(QStyle:: SH_Widget_ShareActivation ,  0 ); // default:  0
+{
+}

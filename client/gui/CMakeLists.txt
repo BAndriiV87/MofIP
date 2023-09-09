@@ -28,9 +28,9 @@ link_libraries(Qt5::Widgets)
 
 # GUI targets
 # -----------------------------------------------
-add_subdirectory(MofIPWidgets)
-add_subdirectory(MofIPGui)
-add_subdirectory(myStyle)
+#add_subdirectory(MofIPWidgets)
+#add_subdirectory(MofIPGui)
+add_subdirectory(MofIPStyle)
 
 add_executable(${This} main.cpp) # add WIN32 after target name for get debug in console
 set_target_properties(${This} PROPERTIES 
@@ -43,9 +43,9 @@ target_include_directories(${This}
 )
 target_link_libraries(${This}
     PRIVATE
-        MofIPWidgets
-        MofIPGui
-        myStyle
+        #MofIPWidgets
+        #MofIPGui
+        MofIPStyle
 )
 set_target_folder(TARGET ${This})
 
