@@ -1,20 +1,21 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(This MofIPWidgets)
+set(This mofipwidgets)
 project(${This} VERSION ${MOFIP_VERSION} LANGUAGES CXX)
 
 set_library_type_msvc(SHARED_LIB)
 
 set(HEADERS
-    include/MofIPWidgets.hpp
-    include/MofIPWidgets/MofIPPushButton.hpp
-    include/MofIPWidgets/MofipWidgetsCommon.hpp
-    include/MofIPWidgets/MofIPWidgetsFactory.hpp
+    include/${This}.hpp
+    include/startWindow/CommonDefinitions.hpp
+    include/startWindow/ToolButton.hpp
+    include/startWindow/FramelessWindow.hpp
+    include/startWindow/StartWindow.hpp
 )
 set(SOURCES
-    src/MofIPPushButton.cpp
-    src/MofipWidgetsCommon.cpp
-    src/MofIPWidgetsFactory.cpp
+    src/startWindow/FramelessWindow.cpp
+    src/startWindow/ToolButton.cpp
+    src/startWindow/StartWindow.cpp
 )
 
 add_library(${This} SHARED ${HEADERS} ${SOURCES})

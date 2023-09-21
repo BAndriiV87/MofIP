@@ -28,8 +28,7 @@ link_libraries(Qt5::Widgets)
 
 # GUI targets
 # -----------------------------------------------
-add_subdirectory(MofIPWidgets)
-add_subdirectory(MofIPGui)
+add_subdirectory(mofipwidgets)
 
 # Main executable target
 # -----------------------------------------------
@@ -44,8 +43,7 @@ target_include_directories(${This}
 )
 target_link_libraries(${This}
     PRIVATE
-        MofIPWidgets
-        MofIPGui
+        mofipwidgets
 )
 set_target_folder(TARGET ${This})
 
