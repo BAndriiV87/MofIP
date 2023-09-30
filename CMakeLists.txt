@@ -33,6 +33,9 @@ set_target_folder(TARGET gtest)
 set_target_folder(TARGET gmock_main)
 set_target_folder(TARGET gmock)
 
+# Common libraries
+add_subdirectory(libs/mofipobjects)
+
 # Application Runtimes part
 # -------------------------------------------------------------------------
 if(MSVC)

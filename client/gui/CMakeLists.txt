@@ -23,12 +23,13 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
-link_libraries(Qt5::Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Core Concurrent Widgets)
+link_libraries(Qt5::Core Qt5::Concurrent Qt5::Widgets)
 
 # GUI targets
 # -----------------------------------------------
 add_subdirectory(mofipwidgets)
+#add_subdirectory(tempgui)
 
 # Main executable target
 # -----------------------------------------------
@@ -44,6 +45,7 @@ target_include_directories(${This}
 target_link_libraries(${This}
     PRIVATE
         mofipwidgets
+        #tempgui
 )
 set_target_folder(TARGET ${This})
 

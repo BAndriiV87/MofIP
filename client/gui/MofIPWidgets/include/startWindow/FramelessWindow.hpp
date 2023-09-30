@@ -39,7 +39,6 @@ namespace mofipgui {
         bool modifyBottom(QRect& rect, QMouseEvent* event);
     public:
         explicit FramelessWindow(QWidget* wgt = nullptr);
-        int titlebarHeight() const;
     protected:
         void mousePressEvent(QMouseEvent* event) Q_DECL_OVERRIDE;
         void mouseReleaseEvent(QMouseEvent* event) Q_DECL_OVERRIDE;

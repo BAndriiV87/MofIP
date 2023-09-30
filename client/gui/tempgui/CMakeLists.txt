@@ -1,23 +1,18 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(This mofipwidgets)
+set(This tempgui)
 project(${This} VERSION ${MOFIP_VERSION} LANGUAGES CXX)
 
 set_library_type_msvc(SHARED_LIB)
 
 set(HEADERS
     include/${This}.hpp
-    include/startWindow/CommonDefinitions.hpp
-    include/startWindow/ToolButton.hpp
-    include/startWindow/FramelessWindow.hpp
-    include/startWindow/GetStartedWindow.hpp
-    include/startWindow/GetStartedMenuButton.hpp
+    include/temp.hpp
+    include/mythread.hpp
 )
 set(SOURCES
-    src/startWindow/FramelessWindow.cpp
-    src/startWindow/ToolButton.cpp
-    src/startWindow/GetStartedWindow.cpp
-    src/startWindow/GetStartedMenuButton.cpp
+    src/temp.cpp
+    src/mythread.cpp
 )
 
 add_library(${This} SHARED ${HEADERS} ${SOURCES})

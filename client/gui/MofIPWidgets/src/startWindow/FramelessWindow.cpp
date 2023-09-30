@@ -10,11 +10,7 @@ static QString QtEnumToString(const QEnum value)
 
 namespace mofipgui {
 
-    int FramelessWindow::titlebarHeight() const 
-    { 
-        return TOOL_BUTTON_RECT.height(); 
-    }
-
+    constexpr int toolbtnshift = 1;
 
     FramelessWindow::FramelessWindow(QWidget* wgt)
         : QFrame(wgt),
@@ -25,14 +21,14 @@ namespace mofipgui {
         setMouseTracking(true);
 
         mCloseButton = new ToolButton<CloseButtonPainter>(this);
-        mCloseButton->move(width() - mCloseButton->width(), 0);
+        mCloseButton->move(width() - mCloseButton->width() - toolbtnshift, toolbtnshift);
         mMaxButton = new ToolButton<MaxButtonPainter>(this);
-        mMaxButton->move(width() - mMaxButton->width() * 2, 0);
+        mMaxButton->move(width() - mMaxButton->width() * 2 - toolbtnshift, toolbtnshift);
         mMinButton = new ToolButton<MinButtonPainter>(this);
-        mMinButton->move(width() - mMinButton->width() * 2, 0);
+        mMinButton->move(width() - mMinButton->width() * 2 - toolbtnshift, toolbtnshift);
         mMinButton->setHidden(true);
         mCollapseButton = new ToolButton<CollapseButtonPainter>(this);
-        mCollapseButton->move(width() - mCollapseButton->width() * 3, 0);
+        mCollapseButton->move(width() - mCollapseButton->width() * 3 - toolbtnshift, toolbtnshift);
 
         connect(mCloseButton, &ToolButton<CloseButtonPainter>::clicked, this, &FramelessWindow::close);
         connect(mCollapseButton, &ToolButton<CollapseButtonPainter>::clicked, this, &FramelessWindow::collapseSlot);
@@ -209,10 +205,10 @@ namespace mofipgui {
     }
 
     void FramelessWindow::resizeEvent(QResizeEvent* event) {
-        mCloseButton->move(event->size().width() - mCloseButton->width(), 0);
-        mMaxButton->move(event->size().width() - mMaxButton->width() * 2, 0);
-        mMinButton->move(event->size().width() - mMinButton->width() * 2, 0);
-        mCollapseButton->move(event->size().width() - mCollapseButton->width() * 3, 0);
+        mCloseButton->move(event->size().width() - mCloseButton->width() - toolbtnshift, toolbtnshift);
+        mMaxButton->move(event->size().width() - mMaxButton->width() * 2 - toolbtnshift, toolbtnshift);
+        mMinButton->move(event->size().width() - mMinButton->width() * 2 - toolbtnshift, toolbtnshift);
+        mCollapseButton->move(event->size().width() - mCollapseButton->width() * 3 - toolbtnshift, toolbtnshift);
         QWidget::resizeEvent(event);
     }
 
@@ -238,7 +234,9 @@ namespace mofipgui {
     }
 
     void FramelessWindow::paintEvent(QPaintEvent* event) {
-
+        QPainter painter(this);
+        painter.setPen(QPen(QColor(70, 70, 70, 255), 2));
+        painter.drawRect(rect());
     }
 
 }
